@@ -1,4 +1,16 @@
 {
+  /* ✏생성자로 만드는 것과 static으로 object를 생성하는 것에 대한 차이
+   *
+   * static 함수는 사용 용도에 따라서 장점이 달라짐.
+    1.오브젝트의 생성 주기를 효율적으로 관리
+      싱글톤 패턴이나, 생성 할 수 있는 인스턴스의 갯수 제한, 등 여러가지를 컨트롤 가능
+    2.인스턴스를 만드는 로직을 캡슐화
+      인스턴스를 생성하는데 복잡한 로직이 추가 된다면, static 함수를 통해 이런 복잡성을 심플하게 제공
+      Car.createBlueCar();
+      Car.createYellowCar();
+      사용하는 사람은 정확하게 어떻게 만드는 지 몰라도, 함수 하나로 BlueCar, YellowCar를 만듦
+ */
+
   type CoffeeCup = {
     shots: number;
     hasMilk: boolean;
