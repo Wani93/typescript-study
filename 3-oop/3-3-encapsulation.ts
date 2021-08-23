@@ -48,4 +48,40 @@
   // coffeeMachine.coffeBeans = 3;
   // coffeeMachine.coffeBeans = -34; invalid
   coffeeMachine.fillCoffeeBeans(10);
+
+  // getter, setter
+  // 어떠한 계산을 하게될 때 getter, setter를 활용하면 좋다.
+  // vue에서 computed와 비슷한 개념같군..
+  class User {
+    // private firstName: string; 생성자 함수에 접근제한자 설정하여 얘네들은 불필요!
+    // private lastName: string;
+    // fullName: string;
+    // get이라는 키워드를 쓰면 함수처럼 표기되지만 접근할 때는 멤버 변수처럼 접근 가능! ex) user.fullName
+    get fullName(): string {
+      return `${this.firstName} ${this.lastName}`;
+    }
+    private inernalAge = 4;
+    get age(): number {
+      return this.inernalAge;
+    }
+    set age(num: number) {
+      // setter를 이용하면 아래와 같은 유효성 검사도 가능!
+      if (num < 0) {
+        throw new Error('age is not minus!');
+      }
+      this.inernalAge = num;
+    }
+
+    // 생성자에 접근제한자를 설정하면 자동으로 멤버변수로 설정 됨!
+    constructor(private firstName: string, private lastName: string) {
+      // this.firstName = firstName;  얘네도 생성자 함수에 private이 붙어서 불필요!
+      // this.lastName = lastName;
+    }
+  }
+  const user = new User('Steve', 'Jobs');
+  // console.log(user.fullName); // Steve Jobs
+  // user.firstName = 'Wani';
+  // console.log(user.fullName); Steve Jobs가 나옴 -> fullName은 생성자 함수가 호출될 때 할당되기 때문. -> 그렇다면 다른 name이 변경될때 full도 반영되게 하고 싶다면 어떻게 할까> -> getter 활용
+  // console.log(user.fullName); // getter로 바꾸니까 Wani Jobs가 나옴
+  user.age = 6; // 멤버 변수처럼 사용하지만 setter를 통해 값이 할당된 것!
 }
