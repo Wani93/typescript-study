@@ -98,9 +98,9 @@
     }
   }
 
-  const maker: CoffeeMachine = CoffeeMachine.makeMachine(32));
+  const maker: CoffeeMachine = CoffeeMachine.makeMachine(32);
   const amateur = new AmateurUser(maker);
   const pro = new ProBarista(maker);
-  amateur.makeCoffee(); // 같은 인스턴스를 받았지만 두가지 인터페이스를 구현하기 때문에 CoffeeMaker, CommercialCoffeeMaker로 나뉜다.  
-  pro.makeCoffee();     // 인터페이스에 규약된 함수들만 접근 가능하기 때문에 사용자는 내부 구현을 몰라도 사용 가능.
+  amateur.makeCoffee(); // 같은 인스턴스를 받았지만 두가지 인터페이스를 구현하기 때문에 CoffeeMaker, CommercialCoffeeMaker로 나뉜다.
+  pro.makeCoffee(); // 인터페이스에 규약된 함수들만 접근 가능하기 때문에 사용자는 내부 구현을 몰라도 사용 가능.
 }
