@@ -23,7 +23,9 @@ const move = (dir: Direction) => {
       position.x += 1;
       break;
     default:
-      throw new Error(`unknown direction: ${dir}`);
+      // 아래와 같이 구현한다면 의도한 type이 아닐시 컴파일 에러가 발생
+      const invalid: never = dir;
+      throw new Error(`unknown direction: ${invalid}`);
   }
 };
 
