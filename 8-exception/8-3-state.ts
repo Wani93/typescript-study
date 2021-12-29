@@ -9,7 +9,7 @@
   type ResultState = SuccessState | NetworkErrorState;
 
   class NetworkClient {
-    tryConnect(): ResultState {
+      // tryConnect(): ResultState {
       // throw new Error('No network!'); 예상 가능한 에러에서 throw new Error를 처리하는 건 좋지 않음
     }
   }
